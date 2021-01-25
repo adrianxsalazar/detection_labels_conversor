@@ -21,15 +21,15 @@ def main(json_path,image_path):
 
     for item in data['images']:
         #get basic information of the image
-    	image_id = item['id']
-    	file_name = item['file_name']
-    	width = item['width']
-    	height = item['height']
+        image_id = item['id']
+        file_name = item['file_name']
+        width = item['width']
+        height = item['height']
 
         #return the annotations(bounding boxes with the same image id as the image)
-    	value = filter(lambda item1: item1['image_id'] == image_id,data['annotations'])
+        value = filter(lambda item1: item1['image_id'] == image_id,data['annotations'])
 
-        name, extension = os.path.splitext(file_name)
+        name,extension = os.path.splitext(file_name)
 
         txt_file_name=os.path.join(image_path,name+".txt")
 
@@ -39,12 +39,12 @@ def main(json_path,image_path):
         for bounding_box in value:
 
             #get the category id of the bounding box
-    	    category_id = bounding_box['category_id']
+            category_id = bounding_box['category_id']
 
             #Get the coordinates of the bounding box
             box = bounding_box['bbox']
 
-    	    bb = yolo_convert_bounding_box(width,height,box)
+            bb = yolo_convert_bounding_box(width,height,box)
 
             #
             outfile.write(str(category_id)+" "+" ".join([str(a) for a in bb]) + '\n')

@@ -16,17 +16,33 @@ to convert the COCO Json file into any format.
 
 Running the file is simple. You have to use the commands to indicate the location
 of the detection annotation files and the path of the folder where you have the
-images.
+images. Below, you can find some examples of the commands to run the conversors.
+
+The following command takes a COCO ".json" file called "dataset.json" and transforms it into several darknet
+files, which the code saves in the same path as the images, which in this case is "./dataset/images/". The parameter "-json_path"
+indicates the path of the COCO ".json" file and the parameter "-image_path" shows the
+path that contains the data/images.
 
 ```
 
-$ python3 code/faster_rcnn/faster_rcnn.py
+$ python code/coco_json_to_darknet.py -json_path "dataset.json" -image_path "./dataset/images/"
 
 ```
 
+This other command takes a gets all the VOC xml file in the path "./dataset/images/"
+file and transforms it into several darknet
+files, which the code saves in the same path as the images. The parameter "-json_path"
+indicates the path of the COCO ".json" file and the parameter "-image_path" shows the
+path that contains the data/images.
+
 ```
 
-<h3> Training parameters </h3>
+$ python code/coco_json_to_darknet.py -json_path "" -image_path ""
+
+```
+
+
+<h3> Parameters for coco_json_to_voc_xml.py </h3>
 
 ```
 
@@ -74,3 +90,10 @@ $ python3 code/faster_rcnn/faster_rcnn.py
 
 
 ```
+
+<h3> Parameters for voc_xml_to_json_coco.py</h3>
+
+
+
+
+<h3> Parameters for coco_json_to_darknet.py</h3>

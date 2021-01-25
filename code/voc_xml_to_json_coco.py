@@ -56,11 +56,11 @@ def get_coco_annotation_from_obj(obj, dictionary_clases):
 
     #get information about the bounding box.
     bndbox = obj.find('bndbox')
-    xmin = int(bndbox.findtext('xmin')) - 1
-    ymin = int(bndbox.findtext('ymin')) - 1
+    xmin = int(bndbox.findtext('xmin'))
+    ymin = int(bndbox.findtext('ymin'))
     xmax = int(bndbox.findtext('xmax'))
     ymax = int(bndbox.findtext('ymax'))
-    assert xmax > xmin and ymax > ymin, f"Box size error !: (xmin, ymin, xmax, ymax): {xmin, ymin, xmax, ymax}"
+    #assert xmax > xmin and ymax > ymin, f"Box size error !: (xmin, ymin, xmax, ymax): {xmin, ymin, xmax, ymax}"
 
     #width and height
     o_width = xmax - xmin
