@@ -15,4 +15,62 @@ transform the detection annotation formats to COCO Json. Then, you will be able
 to convert the COCO Json file into any format.
 
 Running the file is simple. You have to use the commands to indicate the location
-of the 
+of the detection annotation files and the path of the folder where you have the
+images.
+
+```
+
+$ python3 code/faster_rcnn/faster_rcnn.py
+
+```
+
+```
+
+<h3> Training parameters </h3>
+
+```
+
+-> -model: description=standard model used for training,
+            required=False, default="COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml", type=str
+
+-> -check_model: description=check if there is a checkpoint from previous trainings processes,
+            required=False, default=False, type=bool
+
+-> -model_output: description=where the model is going be stored,
+            required=False, default="dataset_A", type=str
+
+-> -dataset: description=dataset to use,
+            required=False, default="dataset_A", type=str
+
+-> -standard_anchors: description=True if we want to use the standard anchor sizes, False if we want to suggest ours,
+            required=False, default=True, type=bool
+
+-> -learning_rate: description=learning rate in the training process
+            required=False, default=0.0025, type=float
+
+-> -images_per_batch: description=number of images used in each batch,
+            required=False, default=6, type=int
+
+-> -anchor_size: description= if -standard_anchors is True, the size of the anchors in the rpn,
+            required=False, default='32,64,128,256,512', type=str
+
+-> -aspect_ratios: description= if -standard_anchors is True, this indicates the aspect ration to use in the rpn
+            required=False, default='0.5,1.0,2.0', type=str )
+
+-> -roi_thresh: description=Overlap required between a ROI and ground-truth box in order for that ROI to be used as training example,
+            required=False, default=0.5, type=float
+
+-> -number_classes: description=number of classes,
+            required=False, default=1, type=int
+
+-> -evaluation_period: description= The command indicates the number of epochs required to evaluate our model in the validations set,
+            required=False, default=5, type=int)
+
+-> -patience: description= Number of evaluations without improvement required to stop the training process,
+            required=False, default=20, type=int
+
+-> -warm_up_patience: description=Number of evaluations that will happen independently of whether the validation loss improves,
+            required=False, default=20, type=int
+
+
+```
